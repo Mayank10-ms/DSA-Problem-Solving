@@ -4,14 +4,16 @@ public:
         unordered_map<string,int>mp;
         for(auto& x : words) mp[x]++;
 
-        auto cmp = [](const pair<int,string>& a, const pair<int,string>& b) {
-            if (a.first != b.first) return a.first > b.first;
-            return a.second < b.second;
-        };
-        priority_queue<pair<int,string>,vector<pair<int,string>>,decltype(cmp)>pq;
+        // auto cmp = [](const pair<int,string>& a, const pair<int,string>& b) {
+        //     if (a.first != b.first) return a.first > b.first;
+        //     return a.second < b.second;
+        // };
+        // priority_queue<pair<int,string>,vector<pair<int,string>>,decltype(cmp)>pq;
+
+        priority_queue<pair<int,string>>pq;
 
         for(auto& [word,f]:mp){
-            pq.push({f,word});
+            pq.push({-f,word});
             if(pq.size()>k){
             pq.pop();
            }
