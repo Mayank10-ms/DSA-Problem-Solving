@@ -10,14 +10,32 @@ public:
           return sum;
         }
     bool isHappy(int n) {
-        int slow = n;
-        int fast = nextdig(n);
+        //1.
+        // int slow = n;
+        // int fast = nextdig(n);
 
-        while(fast != 1 and slow != fast){
-            slow = nextdig(slow);
-            fast = nextdig(nextdig(fast));
+        // while(fast != 1 and slow != fast){
+        //     slow = nextdig(slow);
+        //     fast = nextdig(nextdig(fast));
+        // }
+        // return fast == 1;
+
+        //2.unordered_set
+
+
+        std::unordered_set<int>seen;
+
+        while(n!=1 and !seen.count(n)){
+            seen.insert(n);
+            int sum =0;
+            while(n>0){
+                int digit = n%10;
+                sum+=digit*digit;
+                n=n/10;
+            }
+            n=sum;
         }
-        return fast == 1;
+        return n==1;
     }
 };
 
