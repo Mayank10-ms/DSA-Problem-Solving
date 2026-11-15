@@ -19,7 +19,7 @@ public:
                 color[neighbour]= 1- color[node];
                 q.push(neighbour);
                 }
-                 if ( color[neighbour]==color[node]){
+                else  if ( color[neighbour]==color[node]){
                     return false;
                 }   
             }
