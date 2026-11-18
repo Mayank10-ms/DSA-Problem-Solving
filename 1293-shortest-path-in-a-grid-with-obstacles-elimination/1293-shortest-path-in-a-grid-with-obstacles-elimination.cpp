@@ -9,9 +9,11 @@ public:
         queue<tuple<int,int,int>>q;
 
         q.push({0,0,k});
+
         visited[0][0][k]=1;
 
         int steps =0;
+
         int dr[]={1,-1,0,0};
         int dc[]={0,0,1,-1};
 
@@ -20,17 +22,19 @@ public:
             int size = q.size();
 
             while(size--){
-                 auto[r,c,remk]=q.front();
+                 auto[r,c,rem]=q.front();
                  q.pop();
+
                 if(r==m-1 and c == n-1){
                     return steps;
                 }
+
                 for(int i =0;i<4;i++){
                     int nr = r+dr[i];
                     int nc = c+dc[i];
 
                     if(nr>=0 and nr<m and nc>=0 and nc<n){
-                        int newk = remk;
+                        int newk = rem;
                         if(grid[nr][nc]==1){
                             newk--;
                         }
@@ -44,7 +48,6 @@ public:
                         }
                     }
                 }
-
             }
             steps++;
         }
