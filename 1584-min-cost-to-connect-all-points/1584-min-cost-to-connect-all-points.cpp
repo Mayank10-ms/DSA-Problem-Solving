@@ -21,6 +21,7 @@ public:
             total_cost += wt;
 
             for(int j =0;j<n;j++){
+                
                 if(j==node) continue;
                 if(vis[j]) continue;
 
